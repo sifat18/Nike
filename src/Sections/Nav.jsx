@@ -4,7 +4,7 @@ import { hamburger } from "../assets/icons";
 import { routes } from "../utility/routes";
 export const Nav = () => {
   return (
-    <header className="z-10 w-full bg-red-400 padding-x py-8 absolute">
+    <header className="z-10 w-full padding-x py-8 absolute">
       <nav className="flex justify-between items-center">
         <a href="/">
           <img src={headerLogo} alt="logo" width={130} height={29} />
@@ -21,7 +21,7 @@ export const Nav = () => {
             </li>
           ))}
         </ul>
-        <div className="max-lg:block lg:hidden">
+        <div className="max-lg:block hidden">
           <img src={hamburger} alt="" width={25} height={25} />
         </div>
       </nav>
