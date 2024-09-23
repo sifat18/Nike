@@ -21,6 +21,9 @@ export const Nav = () => {
             </li>
           ))}
         </ul>
+        <div className="max-lg:block lg:hidden">
+          <img src={hamburger} alt="" width={25} height={25} />
+        </div>
       </nav>
     </header>
   );
