@@ -10,12 +10,15 @@ export const Hero = () => {
       className="flex xl:flex-row  flex-col gap-10 max-container min-h-screen "
     >
       <div className="relative flex flex-col  justify-center items-start w-full xl:w-2/5 max-xl:padding-x pt-28">
-        <p>Our Summer Collection</p>
-        <p></p>
-        <h1>
-          <span>The New Arrivals</span>
+        <p className="text-lg font-montserrat text-coral-red">
+          Our Summer Collection
+        </p>
+        <h1 className="mt-10 font-palanquin text-8xl max-sm:text-[72px] max-sm:leading-[82px] font-bold">
+          <span className="relative pr-10 z-10 xl:bg-white xl:whitespace-nowrap">
+            The New Arrivals
+          </span>
           <br />
-          <span>Nike</span>Shoes
+          <span className="text-coral-red inline-block mt-3"> Nike</span>Shoes
         </h1>
         <p>
           Discover Stylish Nike arrivals, quality comfort and innovation for
