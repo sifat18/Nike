@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../components/Button";
 import { arrowRight } from "../assets/icons";
-import { statistics } from "../utility/constants";
+import { shoes, statistics } from "../utility/constants";
+import { bigShoe1 } from "../assets/images";
+import { ShoeCard } from "../components/ShoeCard";
 
 export const Hero = () => {
+  const [bigShoeImg, setBigShoeImg] = useState(bigShoe1);
+
   return (
     <section
       id="home"
-      className="flex xl:flex-row  flex-col gap-10 max-container min-h-screen "
+      className="w-full flex xl:flex-row  flex-col gap-10 max-container min-h-screen "
     >
-      <div className="relative flex flex-col  justify-center items-start w-full xl:w-2/5 max-xl:padding-x pt-28">
+      <div className="xl:w-2/5 relative flex flex-col  justify-center items-start w-full  max-xl:padding-x pt-28">
         <p className="text-lg font-montserrat text-coral-red">
           Our Summer Collection
         </p>
@@ -32,6 +36,27 @@ export const Hero = () => {
               <p className="font-montserrat leading-7 text-slate-gray">
                 {i?.label}
               </p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="flex-1 flex justify-center items-center xl:min-h-screen bg-primary bg-cover max-xl:py-40 bg-hero bg-center w-full">
+        <img
+          src={bigShoe1}
+          alt="big-shoe1"
+          width={610}
+          height={500}
+          className="object-contain z-10 relative"
+        />
+        <div>
+          {shoes.map((image, index) => (
+            <div key={index}>
+              <ShoeCard
+                index={index}
+                imgURL={image}
+                changeBigShoeImage={(shoe) => setBigShoeImg(shoe)}
+                bigShoeImg={bigShoeImg}
+              />
             </div>
           ))}
         </div>
