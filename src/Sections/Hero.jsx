@@ -18,9 +18,9 @@ export const Hero = () => {
             The New Arrivals
           </span>
           <br />
-          <span className="text-coral-red inline-block mt-3"> Nike</span>Shoes
+          <span className="text-coral-red inline-block mt-3"> Nike</span> Shoes
         </h1>
-        <p>
+        <p className="font-montserrat text-slate-gray text-lg leading-8 mt-6 mb-14 sm:max-w-sm">
           Discover Stylish Nike arrivals, quality comfort and innovation for
           your active life
         </p>
@@ -28,8 +28,10 @@ export const Hero = () => {
         <div className="flex justify-start items-start flex-wrap w-full mt-20 gap-16">
           {statistics?.map((i, index) => (
             <div key={index}>
-              <p>{i?.value}</p>
-              <p>{i?.label}</p>
+              <p className="text-4xl font-bold font-palanquin">{i?.value}</p>
+              <p className="font-montserrat leading-7 text-slate-gray">
+                {i?.label}
+              </p>
             </div>
           ))}
         </div>
