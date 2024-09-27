@@ -1,4 +1,6 @@
 import React from "react";
+import { services } from "../utility/constants";
+import { ServiceCard } from "../components/ServiceCard";
 
 export const Services = () => {
   return (
