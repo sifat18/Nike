@@ -14,7 +14,7 @@ export const Nav = () => {
             <li key={i?.label}>
               <a
                 href={i?.href}
-                className="text-lg text-slate-300 font-montserrat leading-normal "
+                className="text-lg  text-slate-gray font-montserrat leading-normal "
               >
                 {i?.label}
               </a>
