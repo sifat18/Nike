@@ -1,4 +1,11 @@
-import { shieldTick, support, truckFast } from "../assets/icons";
+import {
+  facebook,
+  instagram,
+  shieldTick,
+  support,
+  truckFast,
+  twitter,
+} from "../assets/icons";
 import {
   bigShoe1,
   bigShoe2,
@@ -89,4 +96,9 @@ export const reviews = [
     feedback:
       "The product not only met but exceeded my expectations. I'll definitely be a returning customer!",
   },
+];
+export const socialMedia = [
+  { src: facebook, alt: "facebook logo" },
+  { src: twitter, alt: "twitter logo" },
+  { src: instagram, alt: "instagram logo" },
 ];
