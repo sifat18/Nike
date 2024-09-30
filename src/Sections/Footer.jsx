@@ -1,6 +1,6 @@
 import React from "react";
 import { footerLogo } from "../assets/images";
-import { socialMedia } from "../utility/constants";
+import { footerLinks, socialMedia } from "../utility/constants";
 
 export const Footer = () => {
   return (
