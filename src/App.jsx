@@ -8,11 +8,12 @@ import { Subscribe } from "./Sections/Subscribe";
 import { Footer } from "./Sections/Footer";
 import { Nav } from "./Sections/Nav";
 import { CustomerReviews } from "./Sections/CustomerReviews";
+import { Basics } from "./FramerBasics/Basics";
 
 export const App = () => {
   return (
     <main className="relative">
-      <Nav />
+      {/* <Nav />
       <section className="xl:padding-r wide:padding-b">
         <Hero />
       </section>
@@ -36,7 +37,8 @@ export const App = () => {
       </section>
       <section className="bg-black padding-x padding-t pb-8">
         <Footer />
-      </section>
+      </section> */}
+      <Basics />
     </main>
   );
 };
