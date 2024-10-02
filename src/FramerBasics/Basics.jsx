@@ -59,7 +59,18 @@ export const Basics = () => {
           variants={blinkForChild}
           className="bg-slate-800 rounded-lg aspect-square gap-10 flex justify-center items-center"
         >
-          1
+          {/* shape shift */}
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.1 }}
+            transition={{
+              bounceDamping: 50,
+              bounceStiffness: 600,
+            }}
+            className="bg-emerald-600 w-1/2 p-5 text-2xl text-stone-200 tracking-wide"
+          >
+            Click Me
+          </motion.button>
         </motion.div>
         <motion.div
           variants={blinkForChild}
