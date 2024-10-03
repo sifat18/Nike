@@ -75,24 +75,7 @@ export const Basics = () => {
         <motion.div
           variants={blinkForChild}
           className="bg-slate-800 rounded-lg aspect-square gap-10 flex justify-center items-center"
-        >
-          {/* drag shift */}
-          <motion.div
-            drag
-            dragConstraints={{
-              top: -50,
-              bottom: 20,
-              right: 50,
-              left: -50,
-            }}
-            dragTransition={{
-              bounceDamping: 50,
-
-              bounceStiffness: 600,
-            }}
-            className="bg-orange-500 w-1/3 h-1/3 rounded-3xl cursor-grab"
-          ></motion.div>
-        </motion.div>
+        ></motion.div>
         <motion.div
           variants={blinkForChild}
           className="bg-slate-800 rounded-lg aspect-square gap-10 flex justify-center items-center"
