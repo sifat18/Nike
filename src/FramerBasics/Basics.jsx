@@ -97,7 +97,13 @@ export const Basics = () => {
           variants={blinkForChild}
           className="bg-slate-800 rounded-lg aspect-square gap-10 flex justify-center items-center"
         >
-          1
+          {/* progress */}
+          <motion.div className="w-40 aspect-square rounded-xl bg-gray-50/20">
+            <motion.div
+              className="w-full bg-gray-400 rounded-xl h-full origin-bottom"
+              style={{ scaleY: "20%" }}
+            ></motion.div>
+          </motion.div>
         </motion.div>
         <motion.div
           variants={blinkForChild}
