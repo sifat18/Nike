@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 const blinkForParent = {
   hidden: { opacity: 0 },
   show: { opacity: 1, transition: { staggerChildren: 1 } },
@@ -9,6 +9,7 @@ const blinkForChild = {
   show: { opacity: 1 },
 };
 export const Basics = () => {
+  const { scrollYProgress } = useScroll();
   return (
     <section className="flex flex-col overflow-x-hidden space-y-5">
       <motion.div
@@ -101,7 +102,7 @@ export const Basics = () => {
           <motion.div className="w-40 aspect-square rounded-xl bg-gray-50/20">
             <motion.div
               className="w-full bg-gray-400 rounded-xl h-full origin-bottom"
-              style={{ scaleY: "20%" }}
+              style={{ scaleY: scrollYProgress }}
             ></motion.div>
           </motion.div>
         </motion.div>
