@@ -1,5 +1,11 @@
-import React, { useRef } from "react";
-import { motion, useInView, useScroll } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import {
+  motion,
+  useAnimation,
+  useInView,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 const blinkForParent = {
   hidden: { opacity: 0 },
   show: { opacity: 1, transition: { staggerChildren: 1 } },
@@ -31,6 +37,15 @@ export const Basics = () => {
       mainControls.start("visible");
     }
   }, [isInView]);
+
+  const { scrollYProgress: xScroll } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end end"],
+  });
+
+  const paragraphOneValue = useTransform(xScroll, [0, 1], ["-100%", "0%"]);
+  const paragraphTwoValue = useTransform(xScroll, [0, 1], ["-100%", "0%"]);
+
   return (
     <>
       <section className="flex flex-col overflow-x-hidden space-y-5">
@@ -165,14 +180,29 @@ export const Basics = () => {
         </motion.div>
       </section>
       <section className="flex flex-col gap-10 mb-10" ref={containerRef}>
-        <h1 className="text-5xl tracking-wide  text-center">
+        <motion.h1
+          animate={mainControls}
+          initial="hidden"
+          variants={{
+            hidden: { opacity: 0, y: 75 },
+            visible: {
+              opacity: 1,
+              y: 0,
+            },
+          }}
+          transition={{ delay: 0.3 }}
+          className="text-5xl tracking-wide  text-center"
+        >
           Just Keep Scrolling
-        </h1>
-        <p className=" font-thin text-4xl w-1/2 mx-auto">
+        </motion.h1>
+        <motion.p
+          style={{ translateX: paragraphOneValue }}
+          className=" font-thin text-4xl w-1/2 mx-auto"
+        >
           This is a basic tutorial on how to get up and running with Framer
           Motion with some TailwindCSS. If you enjoyed this video, please leave
           a like and also subscribe.
-        </p>
+        </motion.p>
         <p className=" font-thin text-4xl w-1/2 mx-auto">
           Have fun playing with Framer Motion. It is a very powerful library,
           when used properly. Add some life to your websites.
