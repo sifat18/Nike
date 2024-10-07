@@ -4,6 +4,7 @@ import {
   useAnimation,
   useInView,
   useScroll,
+  useSpring,
   useTransform,
 } from "framer-motion";
 const blinkForParent = {
@@ -27,6 +28,7 @@ const svgIconVariants = {
   },
 };
 export const Basics = () => {
+  const { scrollYProgress: progress } = useScroll();
   const { scrollYProgress } = useScroll();
   const containerRef = useRef(null);
   // runs once when visible in viewport
@@ -45,9 +47,27 @@ export const Basics = () => {
 
   const paragraphOneValue = useTransform(xScroll, [0, 1], ["-100%", "0%"]);
   const paragraphTwoValue = useTransform(xScroll, [0, 1], ["100%", "0%"]);
-
+  const scaleX = useSpring(progress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
   return (
     <>
+      <motion.div
+        className="progress-bar"
+        style={{
+          position: "fixed",
+          zIndex: 99,
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "10px",
+          background: "red",
+          transformOrigin: "0%",
+          scaleX: scaleX,
+        }}
+      />
       <section className="flex flex-col overflow-x-hidden space-y-5">
         <motion.div
           variants={blinkForParent}
