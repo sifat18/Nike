@@ -44,7 +44,7 @@ export const Basics = () => {
   });
 
   const paragraphOneValue = useTransform(xScroll, [0, 1], ["-100%", "0%"]);
-  const paragraphTwoValue = useTransform(xScroll, [0, 1], ["-100%", "0%"]);
+  const paragraphTwoValue = useTransform(xScroll, [0, 1], ["100%", "0%"]);
 
   return (
     <>
@@ -203,10 +203,13 @@ export const Basics = () => {
           Motion with some TailwindCSS. If you enjoyed this video, please leave
           a like and also subscribe.
         </motion.p>
-        <p className=" font-thin text-4xl w-1/2 mx-auto">
+        <motion.p
+          style={{ translateX: paragraphTwoValue }}
+          className=" font-thin text-4xl w-1/2 mx-auto"
+        >
           Have fun playing with Framer Motion. It is a very powerful library,
           when used properly. Add some life to your websites.
-        </p>
+        </motion.p>
       </section>
     </>
   );
