@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { motion, useScroll } from "framer-motion";
+import { motion, useInView, useScroll } from "framer-motion";
 const blinkForParent = {
   hidden: { opacity: 0 },
   show: { opacity: 1, transition: { staggerChildren: 1 } },
@@ -23,7 +23,14 @@ const svgIconVariants = {
 export const Basics = () => {
   const { scrollYProgress } = useScroll();
   const containerRef = useRef(null);
-
+  // runs once when visible in viewport
+  const isInView = useInView(containerRef, { once: true });
+  const mainControls = useAnimation(); //in future might have to use the useAnime
+  useEffect(() => {
+    if (isInView) {
+      mainControls.start("visible");
+    }
+  }, [isInView]);
   return (
     <>
       <section className="flex flex-col overflow-x-hidden space-y-5">
