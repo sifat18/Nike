@@ -4,7 +4,7 @@ import { arrowRight } from "../assets/icons";
 import { shoes, statistics } from "../utility/constants";
 import { bigShoe1 } from "../assets/images";
 import { ShoeCard } from "../components/ShoeCard";
-import { motion } from "framer-motion";
+import { easeIn, motion } from "framer-motion";
 export const Hero = () => {
   const [bigShoeImg, setBigShoeImg] = useState(bigShoe1);
 
@@ -16,7 +16,7 @@ export const Hero = () => {
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 10 },
-          show: { opacity: 1, y: 0 },
+          show: { opacity: 1, y: 0, zIndex: 9999 },
         }}
         initial="hidden"
         animate="show"
@@ -25,9 +25,10 @@ export const Hero = () => {
       >
         <motion.p
           variants={{
-            hidden: { opacity: 0, y: 10 },
+            hidden: { opacity: 0, y: 20 },
             show: { opacity: 1, y: 0 },
           }}
+          transition={{ delay: 0.5, duration: 1, ease: "easeIn" }}
           className="text-xl font-montserrat text-coral-red"
         >
           Our Summer collections
@@ -38,6 +39,7 @@ export const Hero = () => {
             hidden: { opacity: 0, y: 10 },
             show: { opacity: 1, y: 0 },
           }}
+          transition={{ delay: 1, ease: "easeIn" }}
           className="mt-10 font-palanquin text-8xl max-sm:text-[72px] max-sm:leading-[82px] font-bold"
         >
           <span className="xl:bg-white xl:whitespace-nowrap relative z-10 pr-10">
@@ -51,13 +53,14 @@ export const Hero = () => {
             hidden: { opacity: 0, y: 10 },
             show: { opacity: 1, y: 0 },
           }}
+          transition={{ delay: 1.5, duration: 1, ease: "easeIn" }}
           className="font-montserrat text-slate-gray text-lg leading-8 mt-6 mb-14 sm:max-w-sm"
         >
           Discover stylish Nike arrivals, quality comfort, and innovation for
           your active life.
         </motion.p>
 
-        <motion.Button
+        <Button
           variants={{
             hidden: { opacity: 0, y: 10 },
             show: { opacity: 1, y: 0 },
@@ -66,7 +69,14 @@ export const Hero = () => {
           iconURL={arrowRight}
         />
 
-        <div className="flex justify-start items-start flex-wrap w-full mt-20 gap-16">
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: -10 },
+            show: { opacity: 1, y: 0 },
+          }}
+          transition={{ delay: 2, duration: 1, ease: "easeIn" }}
+          className="flex justify-start items-start flex-wrap w-full mt-20 gap-16"
+        >
           {statistics.map((stat, index) => (
             <div key={index}>
               <p className="text-4xl font-palanquin font-bold">{stat.value}</p>
@@ -75,7 +85,7 @@ export const Hero = () => {
               </p>
             </div>
           ))}
-        </div>
+        </motion.div>
       </motion.div>
 
       <div className="relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-cover bg-center">
