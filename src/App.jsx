@@ -13,7 +13,7 @@ import { Basics } from "./FramerBasics/Basics";
 export const App = () => {
   return (
     <main className="relative">
-      {/* <Nav />
+      <Nav />
       <section className="xl:padding-r wide:padding-b">
         <Hero />
       </section>
@@ -37,8 +37,8 @@ export const App = () => {
       </section>
       <section className="bg-black padding-x padding-t pb-8">
         <Footer />
-      </section> */}
-      <Basics />
+      </section>
+      {/* <Basics /> */}
     </main>
   );
 };
