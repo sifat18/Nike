@@ -91,11 +91,18 @@ export const Hero = () => {
       <div className="relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-cover bg-center">
         <AnimatePresence mode="wait">
           <motion.img
-            variants={{
-              hidden: { opacity: 0, scale: 0.9, y: -20 },
-              show: { opacity: 1, scale: 1, y: 0 },
+            key={bigShoeImg}
+            initial={{ opacity: 0, scale: 0.9, y: 100 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
+            exit={{
+              opacity: 0,
+              scale: 0.9,
+              y: 100,
+              transition: {
+                duration: 0.2,
+              },
             }}
-            transition={{ delay: 1, duration: 1, ease: "easeIn" }}
             src={bigShoeImg}
             alt="shoe colletion"
             width={610}
