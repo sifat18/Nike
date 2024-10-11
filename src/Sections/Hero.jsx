@@ -111,15 +111,12 @@ export const Hero = () => {
           />
         </AnimatePresence>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { staggerChildren: 1 } }}
-          className="flex sm:gap-6 gap-4 absolute -bottom-[5%] sm:left-[10%] max-sm:px-6"
-        >
+        <div className="flex sm:gap-6 gap-4 absolute -bottom-[5%] sm:left-[10%] max-sm:px-6">
           {shoes.map((image, index) => (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
+              transition={{ delay: 1 + index, duration: 2 }}
               key={index}
             >
               <ShoeCard
@@ -130,7 +127,7 @@ export const Hero = () => {
               />
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
