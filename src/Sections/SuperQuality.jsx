@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../components/Button";
 import { shoe8 } from "../assets/images";
+import { motion } from "framer-motion";
 
 export const SuperQuality = () => {
   return (
@@ -8,7 +9,18 @@ export const SuperQuality = () => {
       id="about-us"
       className="flex justify-between items-center max-lg:flex-col gap-10 w-full max-container"
     >
-      <div className="flex flex-1 flex-col">
+      <motion.div
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+          transition: { delay: 0.5, duration: 1, ease: "easeInOut" },
+        }}
+        viewport={{
+          amount: "some",
+        }}
+        className="flex flex-1 flex-col"
+      >
         <h2 className="font-palanquin capitalize text-4xl lg:max-w-lg font-bold">
           We Provide You
           <span className="text-coral-red"> Super </span>
@@ -25,9 +37,20 @@ export const SuperQuality = () => {
         <div className="mt-11">
           <Button label="View details" />
         </div>
-      </div>
+      </motion.div>
 
-      <div className="flex-1 flex justify-center items-center">
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+          transition: { ease: "easeInOut" },
+        }}
+        viewport={{
+          amount: "some",
+        }}
+        className="flex-1 flex justify-center items-center"
+      >
         <img
           src={shoe8}
           alt="product detail"
@@ -35,7 +58,7 @@ export const SuperQuality = () => {
           height={522}
           className="object-contain"
         />
-      </div>
+      </motion.div>
     </section>
   );
 };

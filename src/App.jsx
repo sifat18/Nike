@@ -12,9 +12,9 @@ import { CustomerReviews } from "./Sections/CustomerReviews";
 
 export const App = () => {
   return (
-    <main className="relative">
+    <main className="relative overflow-x-hidden">
       <Nav />
-      <section className="xl:padding-r wide:padding-b">
+      <section className="mx-11 xl:padding-r wide:padding-b">
         <Hero />
       </section>
       <section className="padding">
