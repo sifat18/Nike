@@ -1,9 +1,22 @@
 import React from "react";
 import { star } from "../assets/icons";
+import { upwards } from "../Sections/PopularProducts";
+import { motion } from "framer-motion";
 
-export const PopularProductCard = ({ imgURL, name, price }) => {
+export const PopularProductCard = ({ index, imgURL, name, price }) => {
   return (
-    <div className="flex flex-1 flex-col w-full max-sm:w-full">
+    <motion.div
+      initial={{ opacity: 0, y: index % 2 == 0 ? 50 : -50 }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        transition: { delay: index / 2, duration: 0.5, ease: "easeInOut" },
+      }}
+      viewport={{
+        amount: "10",
+      }}
+      className="flex flex-1 flex-col w-full max-sm:w-full"
+    >
       {" "}
       <img src={imgURL} alt={name} className="w-[282px] h-[282px]" />
       <div className="mt-8 flex justify-start gap-2.5">
@@ -18,6 +31,6 @@ export const PopularProductCard = ({ imgURL, name, price }) => {
       <p className="mt-2 font-semibold font-montserrat text-coral-red text-2xl leading-normal">
         {price}
       </p>
-    </div>
+    </motion.div>
   );
 };

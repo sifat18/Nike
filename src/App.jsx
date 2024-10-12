@@ -8,7 +8,7 @@ import { Subscribe } from "./Sections/Subscribe";
 import { Footer } from "./Sections/Footer";
 import { Nav } from "./Sections/Nav";
 import { CustomerReviews } from "./Sections/CustomerReviews";
-import { Basics } from "./FramerBasics/Basics";
+// import { Basics } from "./FramerBasics/Basics";
 
 export const App = () => {
   return (
