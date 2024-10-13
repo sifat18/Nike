@@ -2,13 +2,29 @@ import React from "react";
 import { footerLogo } from "../assets/images";
 import { footerLinks, socialMedia } from "../utility/constants";
 import { copyrightSign } from "../assets/icons";
+import { motion } from "framer-motion";
 
 export const Footer = () => {
   return (
     <footer className="max-container">
       <div className="flex justify-between items-start gap-20 flex-wrap max-lg:flex-col">
-        <div className="mt-6 text-base leading-7 font-montserrat text-white-400 sm:max-w-sm">
-          <a href="/">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              staggerChildren: 1,
+              delay: 0.5,
+            },
+          }}
+          className="mt-6 text-base leading-7 font-montserrat text-white-400 sm:max-w-sm"
+        >
+          <motion.a
+            href="/"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
             <img
               src={footerLogo}
               alt="logo"
@@ -16,25 +32,57 @@ export const Footer = () => {
               height={46}
               className="m-0"
             />
-          </a>
-          <p className="mt-6 text-base leading-7 font-montserrat text-white-400 sm:max-w-sm">
+          </motion.a>
+          <motion.p
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-6 text-base leading-7 font-montserrat text-white-400 sm:max-w-sm"
+          >
             Get shoes ready for the new term at your nearest Nike store. Find
             Your perfect Size In Store. Get Rewards
-          </p>
-          <div className="flex items-center gap-5 mt-8">
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: {
+                staggerChildren: 1,
+                delay: 0.5,
+              },
+            }}
+            className="flex items-center gap-5 mt-8"
+          >
             {socialMedia.map((icon) => (
-              <div
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
                 className="flex justify-center items-center w-12 h-12 bg-white rounded-full"
                 key={icon.alt}
               >
                 <img src={icon.src} alt={icon.alt} width={24} height={24} />
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
-        <div className="flex flex-1 justify-between lg:gap-10 gap-20 flex-wrap">
+          </motion.div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              staggerChildren: 1,
+              delay: 0.5,
+            },
+          }}
+          className="flex flex-1 justify-between lg:gap-10 gap-20 flex-wrap"
+        >
           {footerLinks.map((section) => (
-            <div key={section.title}>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              key={section.title}
+            >
               <h4 className="font-montserrat text-2xl leading-normal font-medium mb-6 text-white">
                 {section.title}
               </h4>
@@ -48,12 +96,27 @@ export const Footer = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-      <div className="flex justify-between text-white-400 mt-24 max-sm:flex-col max-sm:items-center">
-        <div className="flex flex-1 justify-start items-center gap-2 font-montserrat cursor-pointer">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{
+          opacity: 1,
+          y: 0,
+          transition: {
+            staggerChildren: 1,
+            delay: 0.5,
+          },
+        }}
+        className="flex justify-between text-white-400 mt-24 max-sm:flex-col max-sm:items-center"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex flex-1 justify-start items-center gap-2 font-montserrat cursor-pointer"
+        >
           <img
             src={copyrightSign}
             alt="copyright sign"
@@ -62,9 +125,9 @@ export const Footer = () => {
             className="rounded-full m-0"
           />
           <p>Copyright. All rights reserved.</p>
-        </div>
+        </motion.div>
         <p className="font-montserrat cursor-pointer">Terms & Conditions</p>
-      </div>
+      </motion.div>
     </footer>
   );
 };
