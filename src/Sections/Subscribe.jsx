@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Button } from "../components/Button";
+import { motion, useScroll } from "framer-motion";
 
 export const Subscribe = () => {
+  null;
+
   return (
     <section
       id="contact-us"

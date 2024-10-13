@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Button } from "../components/Button";
 import { arrowRight } from "../assets/icons";
 import { offer } from "../assets/images";
+import { useScroll, motion, useTransform } from "framer-motion";
 
 export const SpecialOffer = () => {
+  const containerRef = useRef();
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end end"],
+  });
+
+  const right = useTransform(scrollYProgress, [0, 1], ["-100%", "0%"]);
+  const left = useTransform(scrollYProgress, [0, 1], ["100%", "0%"]);
   return (
-    <section className="flex max-lg:flex-col-reverse">
-      <div className="">
+    <section className="flex max-lg:flex-col-reverse" ref={containerRef}>
+      <motion.div className="" style={{ translateX: right }}>
         <img
           src={offer}
           alt="Shoe Promotion"
@@ -14,8 +23,8 @@ export const SpecialOffer = () => {
           height={687}
           className="object-contain w-full"
         />
-      </div>
-      <div>
+      </motion.div>
+      <motion.div style={{ translateX: left }}>
         <h2 className="text-4xl font-palanquin font-bold">
           <span className="text-coral-red">Special </span>
           Offer
@@ -39,7 +48,7 @@ export const SpecialOffer = () => {
             textColor="text-slate-gray"
           />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
