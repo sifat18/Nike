@@ -26,6 +26,22 @@
     
   
   }
+  .circle2::before{
+    content:"";
+    position:absolute;
+  /*    background:green; */
+     border:15px solid green;
+   
+  /* border-radius:50%;   */
+     width:180px;
+    height:200px;
+    inset:0px 0px;
+    
+    transition:3s ease-in-out;
+    animation:rotate 5s linear infinite ;
+    
+  
+  }
   
   
   @keyframes rotate{
@@ -33,8 +49,6 @@
       transform:rotate(0deg);
       
     }
-    
-    
     100%{
       transform:rotate(360deg);
       
@@ -43,6 +57,13 @@
   }
   
   .circle::after{
+    content:"";
+    position:absolute;
+     background:white;
+    inset:2.5px;
+    border-radius:50%;
+  } 
+  .circle2::after{
     content:"";
     position:absolute;
      background:white;
