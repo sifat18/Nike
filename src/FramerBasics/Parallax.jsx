@@ -4,7 +4,7 @@ import { Section2 } from "./Section2";
 
 export const Parallax = () => {
   return (
-    <main className="relative h-[200vh]">
+    <main className="relative h-[100vh]">
       <Section1 />
 
       <Section2 />
