@@ -1,9 +1,13 @@
 import React from "react";
 import Pic1 from "../assets/images/1.jpg";
+import { useTransform } from "framer-motion";
 
-export const Section1 = () => {
+export const Section1 = ({ scrollYProgress }) => {
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
+
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
   return (
-    <div className="h-screen bg-[#C72626] text-[3.5vw] flex flex-col items-center justify-center text-white pb-[10vh]">
+    <div className="sticky top-0 h-screen bg-[#C72626] text-[3.5vw] flex flex-col items-center justify-center text-white pb-[10vh]">
       <p>Scroll Perspective</p>
 
       <div className="flex gap-4">
