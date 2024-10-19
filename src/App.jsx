@@ -42,11 +42,6 @@ export const App = () => {
       </section>
       {/* <Circles /> */}
       {/* <Basics /> */}
-      <motion.div
-        className="cursor"
-        variants={variants}
-        animate={cursorVariant}
-      />
     </main>
     // <Parallax />
   );
