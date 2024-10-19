@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Hero } from "./Sections/Hero";
 import { PopularProducts } from "./Sections/PopularProducts";
 import { SuperQuality } from "./Sections/SuperQuality";
@@ -11,8 +11,43 @@ import { CustomerReviews } from "./Sections/CustomerReviews";
 import { Parallax } from "./FramerBasics/Parallax";
 // import { Circles } from "./components/Circles";
 // import { Basics } from "./FramerBasics/Basics";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export const App = () => {
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0,
+  });
+  const [cursorVariant, setCursorVariant] = useState("default");
+
+  useEffect(() => {
+    const mouseMove = (e) => {
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY,
+      });
+    };
+
+    window.addEventListener("mousemove", mouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", mouseMove);
+    };
+  }, []);
+  const variants = {
+    default: {
+      x: mousePosition.x,
+      y: mousePosition.y,
+    },
+    text: {
+      height: 150,
+      width: 150,
+      x: mousePosition.x,
+      y: mousePosition.y,
+      backgroundColor: "yellow",
+      mixBlendMode: "difference",
+    },
+  };
   return (
     <main className="relative overflow-x-hidden ">
       <Nav />
@@ -42,6 +77,11 @@ export const App = () => {
       </section>
       {/* <Circles /> */}
       {/* <Basics /> */}
+      <motion.div
+        className="cursor"
+        variants={variants}
+        animate={cursorVariant}
+      />
     </main>
     // <Parallax />
   );
