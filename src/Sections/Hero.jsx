@@ -162,6 +162,11 @@ export const Hero = () => {
           ))}
         </div>
       </div>
+      <motion.div
+        className="cursor"
+        variants={variants}
+        animate={cursorVariant}
+      />
     </section>
   );
 };
