@@ -27,7 +27,20 @@ export const Hero = () => {
       window.removeEventListener("mousemove", mouseMove);
     };
   }, []);
-
+  const variants = {
+    default: {
+      x: mousePosition.x - 16,
+      y: mousePosition.y - 16,
+    },
+    text: {
+      height: 150,
+      width: 150,
+      x: mousePosition.x - 75,
+      y: mousePosition.y - 75,
+      backgroundColor: "yellow",
+      mixBlendMode: "difference",
+    },
+  };
   return (
     <section
       id="home"
