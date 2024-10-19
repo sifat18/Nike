@@ -14,7 +14,7 @@ import { Parallax } from "./FramerBasics/Parallax";
 
 export const App = () => {
   return (
-    <main className="relative overflow-x-hidden">
+    <main className="relative overflow-x-hidden ">
       <Nav />
       <section className="mx-11 xl:padding-r wide:padding-b">
         <Hero />
