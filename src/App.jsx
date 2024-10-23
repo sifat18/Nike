@@ -8,9 +8,9 @@ import { Subscribe } from "./Sections/Subscribe";
 import { Footer } from "./Sections/Footer";
 import { Nav } from "./Sections/Nav";
 import { CustomerReviews } from "./Sections/CustomerReviews";
-import { Parallax } from "./FramerBasics/Parallax";
-import { Circles } from "./components/Circles";
-import { Basics } from "./FramerBasics/Basics";
+// import { Parallax } from "./FramerBasics/Parallax";
+// import { Circles } from "./components/Circles";
+// import { Basics } from "./FramerBasics/Basics";
 
 export const App = () => {
   return (
